@@ -2,7 +2,7 @@
 * For running this project study ppt and project report
 * Watch video to understand flow of Project
  
- ### To run porject
+ ### To run project
 * Download XAMPP
 * Place sushma1 in xampp->htdocs
 * Open XAMPP Control Panel
