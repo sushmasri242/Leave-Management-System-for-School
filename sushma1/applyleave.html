@@ -1,0 +1,190 @@
+<html>
+<head>
+	<title>apply leave</title>
+	<link href="sty.css" rel="stylesheet" type="text/css" />
+	<style>
+	ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+	</style>
+
+</head><body  style="background-image:url(im6.jpg)";>
+
+
+<ul>
+  <li><a href="#home">Home</a></li>
+  <li><a href="#change">Change Password</a></li>
+  <li><a href="#contact">Apply Leave</a></li>
+  <li><a href="#about">Leave Balance</a></li>
+  <li><a href="#about">Leave status</a></li>
+  <li><a href="#about">Leave History</a></li>
+  <li><a href="#about">Help</a></li>
+  <li style="float:right"><a href="#new.php">Logout</a></li>
+ 
+
+</ul>
+
+	<center>
+	<br><h1>Apply Leave</h1></br>
+	</br>
+	<div class="login-page">
+	<div class="form">
+	<form action="applyleavedb.php" method="post">
+		<h3><font color="white">
+		<table style="color:coral">
+<tr>
+<td><b>Type of Leave</b></td>
+<td>
+<select name="type" placeholder="Type of Leave"required></br></br>
+		<option value="Type of Leave">select</option>
+		<option value="casual">casual</option>
+		<option value="medical">medical</option>
+		<option value="">earned</option>
+		<option value="">maternity</option>
+		</select>
+</td>
+</tr>
+<tr>
+<td><b>From Date</b>  </td>
+<td><input type="date" name="from" placeholder="From Date"required></td>
+</tr>
+<tr>
+<td><b>To Date</b>  </td>
+<td><input type="date" name="to" placeholder="To Date"required></td>
+</tr>
+</table>
+</font></h3>
+		<button>ApplyLeave</button>
+	</form>
+	</center>
+<?php
+session_start();
+ mysql_connect('localhost','root','') or die(mysql_error());
+ mysql_select_db('anu') or die(mysql_error());
+ echo '<ul><li style="float:right"><a href="#new.php">welcome $_SESSION['name']</a></li></ul>';
+ if(isset($_POST['ApplyLeave']))
+{
+	if($_SESSION['name']!=''&&$_SESSION['password']!='')
+ 	{
+ 
+	$query=mysql_query("select name,type,(total-days) as remain from info where name=$_SESSION['name']");
+	if($query['leavetype']=='casual')
+		$c=$query['remain'];
+	if($query['leavetype']=='medical')
+		$m=$query['remain'];
+	if($query['leavetype']=='earned')
+		$e=$query['remain'];
+	if($query['leavetype']=='maternity')
+		$mt=$query['remain'];
+	$type=$_POST['type'];
+	$from=$_POST['from'];
+	$to=$_POST['to'];
+	$start=new DateTime($from);
+	$end=new DateTime($to);
+	$days=$start->diff($end,true)->days;
+	$sundays=intval($days/7)+(($start->format('N')+$days%7)>=7); 
+	$n=$days-$sundays;
+
+	if($type=='casual')
+	{
+		if($days>4)
+		{
+			echo "<br>casual leaves cannot exceed 4<br><a href=\"applyleave.php\">GO BACK</a>";
+			exit();
+		}
+		
+		if($c==0)
+
+		{
+				echo "<br>Request failed:you have used all your casual leaves<a href=\"applyleave.php\">GO BACK</a>";
+				exit();
+		}
+		if($c<$n)
+
+		{
+				echo "<br>Request failed:you have only all $_SESSION['c'] casual leaves<a href=\"applyleave.php\">GO BACK</a>";
+				exit();
+		}
+		$days=$C-$n;	
+	}		
+		
+	if($type=='medical')
+	{
+		if($m==0)
+
+		{
+				echo "<br>Request failed:you have used all your casual leaves<br><a href=\"applyleave.php\">GO BACK</a>";
+				exit();
+		}
+		if($m<$n)
+
+		{
+				echo "<br>Request failed:you have only $_SESSION['m'] medical leaves so,categorize them in medical,earned or casual leaves accordingly<br><a href=\"applyleave.php\">GO BACK</a>";
+				exit();
+		}
+		$days=$m-$n;
+	}
+	if($type=='earned')
+	{
+		if($e==0)
+
+		{
+				echo "<br>Request failed:you have used all your earned leaves<br><a href=\"applyleave.php\">GO BACK</a>";
+				exit();
+		}
+		if($e<$n)
+
+		{
+				echo "<br>Request failed:you have only $_SESSION['e'] earned leaves<br><a href=\"applyleave.php\">GO BACK</a>";
+				exit();
+		}
+		$days=$e-$n;
+	}
+	if($type=='maternity')
+	{
+		if($mt==0)
+
+		{
+				echo "<br>Request failed:you have used all your maternity leaves<br><a href=\"applyleave.php\">GO BACK</a>";
+				exit();
+		}
+		if($mt<$n)
+
+		{
+				echo "<br>Request failed:you have only  $_SESSION['mt'] maternity leaves<br><a href=\"applyleave.php\">GO BACK</a>";
+				exit();
+		}
+		$days=$mt-$n;
+	}
+	$query="insert into info(Name,Department,Type,Days,Fromdate,Todate,Id,Status) values($_SESSION['name'],$_SESSION['department'],$type,$days,$from,$to,$_SESSION['id'],pending)";
+	$_SESSION['type']=$type;
+		
+	echo "<br>".$_SESSION['name'].",an email is sent to you<br><a href=\"lp.php\">OK</a>";
+?>
+</body>
+</html>
+	
+	
+		
+	

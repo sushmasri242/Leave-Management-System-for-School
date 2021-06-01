@@ -1,0 +1,11 @@
+mysql_query("insert into info1(Name,Department,Type,Total,Days,Gender,Fromdate,Todate,Status,Cancellation,Id,Jdate) values('".$uname."','".$dep."','','','','".$gender."','','','','','".$id."','".$date."')");
+	$result=mysql_query("select * from info1 where name='".$_SESSION['name']."'");
+	if($res['Typeofleave']=='casual')
+		$_SESSION['cr']=$res['Noofleaves'];
+	if($res['Typeofleave']=='medical')
+		$_SESSION['mr']=$res['Noofleaves'];
+
+	if($res['Typeofleave']=='earned')
+		$_SESSION['er']=$res['Noofleaves'];
+	if($res['Typeofleave']=='maternity')
+		$_SESSION['mtr']=$res[Noofleaves'];

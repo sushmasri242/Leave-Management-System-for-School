@@ -1,0 +1,130 @@
+body
+{
+	 background-image:url(lahari1.jpg);
+}
+img {
+	margin: 0px;
+	padding: 0px;
+	border: none;
+}
+
+p {
+	margin: 0px;
+	padding: 0px;
+}
+
+
+
+
+#menu {
+
+	width: 920px;
+	height: 50px;
+	padding: 0 80px 0 40px;
+
+}
+
+#menu ul {
+	margin: 0px;
+	padding: 0px;
+
+}
+
+#menu ul li a {
+	float: left;
+	padding: 20px 40px 0 0;
+	text-align: center;
+	font-size: 14px;
+	text-align: center;
+	text-decoration: none;
+	color: #0000FF;
+	font-weight: bold;
+
+}
+
+#menu li a:hover, #menu li .current {
+	color: red;
+}
+
+
+
+#menu ul li {
+	display: inline;
+}
+
+.image_box {
+	float: left;
+	width: 393px;
+	height: 260px;
+	background: black;
+	border: 1px solid black;
+	padding: 3px;
+
+}
+
+.margin_right_20 { margin-right: 20px; }
+.margin_right_40 { margin-right: 40px; }
+
+.heading{
+	font-size: 20px;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+	font-weight: bold;
+	color:#0000FF;
+}
+
+.line_bottom {
+
+	border-bottom: 1px solid #CCC;
+}
+
+#text_bottom {
+
+	width: 500px;
+	height: 210px;
+	padding: 0px 400px 30px 40px;
+
+}
+
+
+#text_bottom2 {
+
+	width: 500px;
+	height: 60px;
+	padding: 0px 40px 20px 30px;
+
+}
+
+.line_bottom2 {
+
+	margin-top: 5px;
+			padding: 60px 50px 60px 90px;
+
+	border-bottom: 1px solid #CCC;
+}
+
+.heading2{
+	font-family: Times New Roman Bold	;
+	font-size: 25px;
+	padding-bottom: 10px;
+
+	margin-bottom: 20px;
+	font-weight: bold;
+	color: Magenta	;
+}
+.head4{
+	font-size: 14px;
+	color: Azure;
+}
+.head5
+{
+	color:Coral;
+}
+.heading3{
+
+	font-size: 15px;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+	font-weight: bold;
+	color: Red	;
+}

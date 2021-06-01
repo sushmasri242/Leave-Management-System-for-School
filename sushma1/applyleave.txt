@@ -1,0 +1,35 @@
+<html>
+<head>
+	<title>apply leave</title>
+	<link href="styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<center>
+	<br><h4>Apply Leave</h4></br>
+	&nbps;
+	<div class="login-page">
+	<div class="form">
+	<form action="applyleavedb.php" method="post">
+		<h3><font color="white">
+		<label>Type of leave</label>
+		<select name="type" placeholder="Type of Leave"required></br></br>
+		<option value="Type of Leave">select</option>
+		<option value="casual">casual</option>
+		<option value="medical">medical</option>
+		<option value="">earned</option>
+		<option value="">maternity</option>
+		</select></br></br>
+		<label>from date</label>
+		<input type="date" name="from" placeholder="From Date"required></br></br>
+		<label>To Date</label>
+		<input type="date" name="to" placeholder="To Date"required></br></br>
+		</font></h3>
+		<button>Apply Leave</button>
+	</form>
+	</center>
+</body>
+</html>
+	
+	
+		
+	

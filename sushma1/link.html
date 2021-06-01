@@ -1,0 +1,14 @@
+table display :
+echo "<td>";
+	
+echo "<a href='approval.php?del=$n'>".$n."</a>";
+echo "</td>";
+ 
+
+approval.php page:
+	if(isset($_GET['del']))
+ 	{ 
+		$id=$_GET['del'];
+	}
+
+	

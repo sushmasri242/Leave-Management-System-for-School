@@ -1,0 +1,43 @@
+$qu=mysql_query("select * from leavetable where Leaveid='".$id."'");
+	$nl=$qu['Typeofleave'];
+	$nd=$qu['Noofdays'];
+	if($nl=='casual')
+	{
+		echo 'hai';
+	if($nd<=$_SESSION['cv'])
+	{
+	$query=mysql_query("update leavetable set Status='approved' where Leaveid='".$id."'");
+ 	if($query)
+		echo 'LEAVE IS APPROVED AND AN EMAIL IS SENT TO YOU';
+	}
+	else
+	{
+		echo 'LEAVE NOT APPROVED SINCE INSUFFICIENT NO OF DAYS REMAINING';
+	}
+	}
+	if($nl=='medical')
+	{
+	if($nd<=$_SESSION['mv'])
+	{
+	$query=mysql_query("update leavetable set Status='approved' where Leaveid='".$id."'");
+ 	if($query)
+		echo 'LEAVE IS APPROVED AND AN EMAIL IS SENT TO YOU';
+	}
+	else
+	{
+		echo 'LEAVE NOT APPROVED SINCE INSUFFICIENT NO OF DAYS REMAINING';
+	}
+	}
+	if($nl=='earned')
+	{
+	if($nd<=$_SESSION['ev'])
+	{
+	$query=mysql_query("update leavetable set Status='approved' where Leaveid='".$id."'");
+ 	if($query)
+		echo 'LEAVE IS APPROVED AND AN EMAIL IS SENT TO YOU';
+	}
+	else
+	{
+		echo 'LEAVE NOT APPROVED SINCE INSUFFICIENT NO OF DAYS REMAINING';
+	}
+	}

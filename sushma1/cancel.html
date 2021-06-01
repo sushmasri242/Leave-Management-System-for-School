@@ -1,0 +1,29 @@
+<html>
+<head>
+	<title>login</title>
+	<link href="styles.css" rel="stylesheet" type="text/css" />
+	<style>
+	body{background-image:url(im6.jpg);background-repeat:no-repeat;
+
+		}
+	</style>
+
+</head>
+<body>
+	<center>
+<font color="#800000" size="6vm">
+<?php
+session_start();
+mysql_connect('localhost','root','') or die(mysql_error());
+mysql_select_db('anu') or die(mysql_error());
+ if(isset($_GET['del1']))
+ { 
+	$id=$_GET['del1'];
+	mysql_query("update leavetable set Status="cancelled" where Leaveid='".$id."'");
+	echo 'YOUR LEAVE CANCELLED';
+	echo "</center">;
+	
+}
+?>
+</body>
+</html>

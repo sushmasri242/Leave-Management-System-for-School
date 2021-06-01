@@ -1,0 +1,104 @@
+<html>
+<head>
+	<title>apply leave</title>
+	<link href="styles.css" rel="stylesheet" type="text/css" />
+	<style>
+	ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #2E8B57;
+}
+	</style>
+
+</head>
+<body>
+
+<ul>
+  <li><a href="#home">Home</a></li>
+  <li><a href="#change">Register</a></li>
+  <li><a href="#contact">Change Password</a></li>
+  <li><a href="#about">Manage Leaves</a></li>
+  <li><a href="#about">Leave status</a></li>
+  <li><a href="#about">Leave History</a></li>
+  <li><a href="#about">Help</a></li>
+  <li style="float:right"><a href="#new.php">Logout</a></li>
+ 
+
+</ul>
+
+	<center>
+	<br><h1>Register Users</h1></br>
+	</br>
+	<div class="users">
+
+	<form action="regusersdb.php" method="post">
+		<h3><font color="white">
+		<table style="color:coral">
+<tr>
+<td><b>Employee Name</b></td>
+<td><input type="text" name="empname" placeholder="Employee name"required></br></br></td>
+</tr>
+<tr>
+<td><b>Gender</b></td>
+<td><select name="gender" placeholder="Gender"required></br></br>
+<option value="Gender">Gender</option>
+		<option value="Female">Female</option>
+		<option value="Male">Male</option>
+		
+</td>
+</tr>
+
+<tr>
+<td><b>Department</b>  </td>
+<td><select name="type" placeholder="Department"required></br></br>
+		<option value="Department">Department</option>
+		<option value="Analyst">Analyst</option>
+		<option value="Developing">Developing</option>
+		<option value="statistic">statistics</option>
+		<option value="Testing">Testing</option>
+		</select>
+</td>
+</tr>
+<tr>
+<td><b>Joining Date</b>  </td>
+<td><input type="date" name="to" placeholder="Joining Date"required></td>
+</tr>
+<tr>
+<td><b>User name</b>  </td>
+<td><input type="text" name="uname" placeholder="User name"required></td>
+</tr>
+<tr>
+<td><b>Password</b>  </td>
+<td><input type="text" name="pass" placeholder="password"required></td>
+</tr>
+
+</table>
+</font></h3>
+		<button>Register</button>
+	</form>
+	</center>
+</body>
+</html>
+	
+	
+		
+	
